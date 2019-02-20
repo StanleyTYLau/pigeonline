@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img alt="Pigeonline logo" src="./assets/pigeonline.png">
+    <ChartVis v-bind:userData = "userData" v-bind:testing = "testing"/>
     <TableData v-bind:userData = "userData"/>
     
   </div>
@@ -9,15 +10,18 @@
 <script>
 import json from './assets/data.json'
 import TableData from './components/Table.vue'
+import ChartVis from './components/Chart.vue'
 
 export default {
   name: 'app',
   components: {
-   TableData
+   TableData,
+   ChartVis
   },
   data() {
     return {
-      userData: json
+      userData: json,
+      testing: "some text"
     }
   }
 }
