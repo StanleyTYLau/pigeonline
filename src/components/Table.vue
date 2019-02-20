@@ -20,7 +20,7 @@
       </thead>
 
       <tbody>
-        <tr v-bind:key="user.postal" v-for="user in userData">
+        <tr v-bind:key="user.phone1 + user.phone2"  v-for="user in userData">
           <td>{{user.first_name}}</td>
           <td>{{user.last_name}}</td>
           <td>{{user.company_name}}</td>
