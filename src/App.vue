@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <TableData />
-    <!-- {{userData}} -->
+    <img alt="Pigeonline logo" src="./assets/pigeonline.png">
+    <TableData v-bind:userData = "userData"/>
+    
   </div>
 </template>
 
