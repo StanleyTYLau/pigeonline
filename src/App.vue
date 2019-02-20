@@ -1,17 +1,24 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TableData />
+    <!-- {{userData}} -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import json from './assets/data.json'
+import TableData from './components/Table.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+   TableData
+  },
+  data() {
+    return {
+      userData: json
+    }
   }
 }
 </script>
