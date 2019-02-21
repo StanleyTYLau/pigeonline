@@ -1,13 +1,29 @@
+
+
 <template>
   <div>
     <h4>Chart {{abc}}</h4>
+    <canvas id="planet-chart"></canvas>
   </div>
 </template>
 
 <script>
+import Chart from 'chart.js'
+
 export default {
   name: "ChartVis",
   props: ["userData", "testing"],
+  methods: {
+    createChart(chartId, chartData) {
+      const ctx = document.getElementById(chartId);
+      const myChart = new Chart(ctx, {
+        type: chartData.type,
+        data: chartData.data,
+        options: chartData.options,
+      });
+    }
+  },
+
   data() {
     const gmailRegEx = /gmail/i
     const yahooRegEx = /yahoo.com/i
@@ -16,7 +32,6 @@ export default {
     let countYahoo = 0
     let countAol = 0
     let total = 0
-
     
     //iterate thru json data and count emails
     for (let user in this.userData){
@@ -28,18 +43,59 @@ export default {
       }
       else if (yahooRegEx.test(email)) {
         countYahoo += 1
-        arr.push(email)
       }
       else if (aolRegEx.test(email)) {
         countAol += 1
       }
+    }
 
+    //create data object for chart
+    let chartData = {
+      type: "bar",
+      data: {
+        labels: ["Gmail", "Yahoo", "AOL", "Other"],
+        datasets: [
+          {
+            label: "Number of Emails Types",
+            data: [countGmail, countYahoo, countAol, (total - countGmail - countYahoo - countAol)],
+            backgroundColor: [
+              'rgba(71, 183,132,.5)', // Green
+              'rgba(71, 183,132,.5)', // Green
+              'rgba(71, 183,132,.5)', // Green
+              'rgba(71, 183,132,.5)' // Green
+            ],
+            borderColor: [
+              '#47b784',
+              '#47b784',
+              '#47b784',
+              '#47b784'
+            ],
+            borderWidth: 3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        lineTension: 1,
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              padding: 25,
+            }
+          }]
+        }
+      }
     }
     
-
     return {
-      abc: this.testing + " hello!Gmail: " + countGmail + " Yahoo:" + countYahoo + " Aol:" + countAol
+      abc: this.testing + " hello!Gmail: " + countGmail + " Yahoo:" + countYahoo + " Aol:" + countAol,
+      chartData: chartData
     }
+  },
+
+  mounted() {
+    this.createChart('planet-chart', this.chartData);
   }
 }
 </script>
