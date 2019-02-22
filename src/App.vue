@@ -17,6 +17,7 @@ import TableData from './components/Table.vue'
 import ChartParent from './components/ChartParent.vue'
 
 export default {
+  
   name: 'app',
   components: {
    TableData,

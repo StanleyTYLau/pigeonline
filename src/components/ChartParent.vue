@@ -46,6 +46,7 @@ export default {
     }
   },
   methods: {
+    
     changeProv() {
       const gmailRegEx = /gmail/i
       const yahooRegEx = /yahoo.com/i
