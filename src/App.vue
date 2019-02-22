@@ -1,7 +1,32 @@
 <template>
   <div id="app">
     <img alt="Pigeonline logo" src="./assets/pigeonline.png">
-    <ChartVis v-bind:userData = "userData" v-bind:testing = "testing"/>
+    <div>
+      <span>Filter by province: </span>
+      <select v-model="provinceFilter">
+      <option disabled value="">Please select one</option>
+      <option>All Provinces</option>
+      <option>AB</option>
+      <option>BC</option>
+      <option>MB</option>
+      <option>NB</option>
+      <option>NL</option>
+      <option>NT</option>
+      <option>NS</option>
+      <option>NU</option>
+      <option>ON</option>
+      <option>PE</option>
+      <option>QC</option>
+      <option>SK</option>
+      <option>YT</option>
+      </select>
+      <span>Selected: {{ provinceFilter }}</span>
+    </div>
+   
+    <div id="chart">
+      <ChartVis v-bind:userData = "userData" v-bind:testing = "testing"/>
+    </div>
+    
     <TableData v-bind:userData = "userData"/>
     
   </div>
@@ -21,7 +46,8 @@ export default {
   data() {
     return {
       userData: json,
-      testing: "some text"
+      testing: "some text",
+      provinceFilter: ''
     }
   }
 }
@@ -35,5 +61,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#chart {
+  width: 60%;
+  margin: 0 auto;
 }
 </style>
