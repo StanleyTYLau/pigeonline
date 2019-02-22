@@ -3,7 +3,27 @@
 <template>
   <div>
     <h4>Chart {{abc}}</h4>
-    <canvas id="planet-chart"></canvas>
+    <span>Filter by province: </span>
+    <select v-model="provinceFilter">
+      <option disabled value="">Please select one</option>
+      <option>All Provinces</option>
+      <option>AB</option>
+      <option>BC</option>
+      <option>MB</option>
+      <option>NB</option>
+      <option>NL</option>
+      <option>NT</option>
+      <option>NS</option>
+      <option>NU</option>
+      <option>ON</option>
+      <option>PE</option>
+      <option>QC</option>
+      <option>SK</option>
+      <option>YT</option>
+    </select>
+    <span>Selected: {{ provinceFilter }}</span>
+
+    <canvas id="email-chart"></canvas>
   </div>
 </template>
 
@@ -90,12 +110,13 @@ export default {
     
     return {
       abc: this.testing + " hello!Gmail: " + countGmail + " Yahoo:" + countYahoo + " Aol:" + countAol,
-      chartData: chartData
+      chartData: chartData,
+      provinceFilter: ''
     }
   },
 
   mounted() {
-    this.createChart('planet-chart', this.chartData);
+    this.createChart('email-chart', this.chartData);
   }
 }
 </script>
