@@ -21,7 +21,7 @@
     </select>
     <span>Selected: {{ provSelect }}</span>
     
-    <ChartVis v-bind:data = "chartData" />
+    <ChartVis :chart-data = "chartData" />
   </div>
    
 </template>

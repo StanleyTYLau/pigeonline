@@ -8,7 +8,6 @@ const { reactiveProp } = mixins
 export default {
   name: "ChartVis",
   extends: Bar,
-  props: ["data"],
   mixins: [reactiveProp],
   data() {
     let newOptions = {
@@ -30,7 +29,7 @@ export default {
   },
   
   mounted() {
-    this.renderChart(this.data, this.options);
+    this.renderChart(this.chartData, this.options);
     
   }
 }
