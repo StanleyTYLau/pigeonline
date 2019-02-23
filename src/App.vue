@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <img alt="Pigeonline logo" src="./assets/pigeonline.png">
+    <img id="logo" alt="Pigeonline logo" src="./assets/pigeonline.png">
       
     <div id="chart">
-      <ChartParent v-bind:userData = "userData" />
+      <ChartParent v-bind:userData = "userData"/>
     </div>
     
     <TableData v-bind:userData = "userData"/>
@@ -25,13 +25,18 @@ export default {
   },
   data() {
     return {
-      userData: json
+      userData: json,
+      showChart: false,
     }
   }
 }
 </script>
 
 <style>
+#logo {
+  margin-bottom: 20px;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

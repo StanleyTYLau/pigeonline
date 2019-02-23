@@ -19,7 +19,6 @@
     <option>SK</option>
     <option>YT</option>
     </select>
-    <span>Selected: {{ provSelect }}</span>
     
     <ChartVis :chart-data = "chartData" />
   </div>

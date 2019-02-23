@@ -29,6 +29,7 @@ export default {
   },
   
   mounted() {
+    //this.chartData created by mixin
     this.renderChart(this.chartData, this.options);
     
   }
