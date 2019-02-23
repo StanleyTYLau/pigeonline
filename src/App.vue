@@ -3,10 +3,10 @@
     <img id="logo" alt="Pigeonline logo" src="./assets/pigeonline.png">
       
     <div id="chart">
-      <ChartParent v-bind:userData = "userData"/>
+      <ChartParent v-bind:userData = "userData" v-if="showChart"/>
     </div>
     
-    <TableData v-bind:userData = "userData"/>
+    <TableData v-bind:userData = "userData" v-on:show="toggleShow()"/>
     
   </div>
 </template>
@@ -27,6 +27,11 @@ export default {
     return {
       userData: json,
       showChart: false,
+    }
+  },
+  methods: {
+    toggleShow() {
+      this.showChart = true
     }
   }
 }
