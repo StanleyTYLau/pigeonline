@@ -1,6 +1,7 @@
 <template>
 
   <div id="chart">
+    <h1>User Emails</h1>
     <span>Filter by province: </span>
     <select v-model="provSelect" v-on:change="changeProv()">
     <option disabled value="">Please select one</option>

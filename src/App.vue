@@ -53,6 +53,6 @@ export default {
 
 #chart {
   width: 60%;
-  margin: 0 auto;
+  margin: 0 auto 25px auto;
 }
 </style>

@@ -1,21 +1,21 @@
 <template>
   <div>
-    <h1>Table</h1>
-
+    <h1>User Data</h1>
+    <h3>Please confirm the 'Email' and 'Province' columns by selecting the table header</h3>
     <table id="table1"> 
       <thead>
         <tr>
-          <th nowrap><b-button :pressed.sync="toggle1" variant="primary">First Name</b-button></th>
-          <th nowrap><b-button :pressed.sync="toggle2" variant="primary">Last Name</b-button></th>
-          <th nowrap><b-button :pressed.sync="toggle3" variant="primary">Company</b-button></th>
-          <th nowrap><b-button :pressed.sync="toggle4" variant="primary">Address</b-button></th>
-          <th nowrap><b-button :pressed.sync="toggle5" variant="primary">City</b-button></th>
+          <th nowrap><b-button :pressed.sync="toggle1" variant="primary" v-on:click="checkEmailProv()">First Name</b-button></th>
+          <th nowrap><b-button :pressed.sync="toggle2" variant="primary" v-on:click="checkEmailProv()">Last Name</b-button></th>
+          <th nowrap><b-button :pressed.sync="toggle3" variant="primary" v-on:click="checkEmailProv()">Company</b-button></th>
+          <th nowrap><b-button :pressed.sync="toggle4" variant="primary" v-on:click="checkEmailProv()">Address</b-button></th>
+          <th nowrap><b-button :pressed.sync="toggle5" variant="primary" v-on:click="checkEmailProv()">City</b-button></th>
           <th nowrap><b-button :pressed.sync="toggle6" variant="primary" v-on:click="checkEmailProv()">Province</b-button></th>
-          <th nowrap><b-button :pressed.sync="toggle7" variant="primary">Postal Code</b-button></th>
-          <th nowrap><b-button :pressed.sync="toggle8" variant="primary">Phone# 1</b-button></th>
-          <th nowrap><b-button :pressed.sync="toggle9" variant="primary">Phone# 2</b-button></th>
+          <th nowrap><b-button :pressed.sync="toggle7" variant="primary" v-on:click="checkEmailProv()">Postal Code</b-button></th>
+          <th nowrap><b-button :pressed.sync="toggle8" variant="primary" v-on:click="checkEmailProv()">Phone# 1</b-button></th>
+          <th nowrap><b-button :pressed.sync="toggle9" variant="primary" v-on:click="checkEmailProv()">Phone# 2</b-button></th>
           <th nowrap><b-button :pressed.sync="toggle10" variant="primary" v-on:click="checkEmailProv()">Email</b-button></th>
-          <th nowrap><b-button :pressed.sync="toggle11" variant="primary">Web</b-button></th>
+          <th nowrap><b-button :pressed.sync="toggle11" variant="primary" v-on:click="checkEmailProv()">Web</b-button></th>
         </tr>
       </thead>
 
@@ -60,7 +60,7 @@ export default {
   methods: {
     checkEmailProv() {
       if (this.toggle6 && this.toggle10 && !this.toggle1 && !this.toggle2 && !this.toggle3 && 
-      !this.toggle4 && !this.toggle5 && !this.toggle8 && !this.toggle9 && !this.toggle11){
+      !this.toggle4 && !this.toggle5 && !this.toggle7 && !this.toggle8 && !this.toggle9 && !this.toggle11){
         this.$emit('show', true);
       }
     }
